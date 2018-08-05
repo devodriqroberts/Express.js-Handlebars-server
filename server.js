@@ -28,6 +28,8 @@ app.use((req, res, next) => {
     res.render('maintenance.hbs', {
         pageTitle: 'Sorry this page is currently down for maintenance. Will be back up soon!'
     })
+
+    next();
 })
 
 app.use(express.static(__dirname + '/public'));
