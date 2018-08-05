@@ -24,13 +24,13 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs', {
-        pageTitle: 'Sorry this page is currently down for maintenance. Will be back up soon!'
-    })
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs', {
+//         pageTitle: 'Sorry this page is currently down for maintenance. Will be back up soon!'
+//     });
 
-    next();
-})
+//     next();
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -47,21 +47,21 @@ hbs.registerHelper('screamIt', (text) => {
 app.get('/', (req, res) => {
     
     res.render('home.hbs', {
-        pageTitle: 'This is my home page',
+        pageTitle: 'Home',
         welcomeMessage: 'Welcome!',
     })
 });
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-        pageTitle: 'About page',
+        pageTitle: 'About',
 
     })
 })
 
-app.get('/bad', (req, res) => {
-    res.send({
-        bad: "Bad request route"
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs',{
+        pageTitle: "Projects",
     })
 })
 
